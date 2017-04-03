@@ -1,0 +1,34 @@
+<%= form_for(post) do |f| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<div class="ui form">
+  <div class="field">
+
+    <%= f.text_field :title, placeholder: 'Post title', autofocus:  true %>
+  </div>
+
+  <div class="field">
+    <%= f.text_area :body,  placeholder: 'Post body' %>
+  </div>
+  <div class="ui inverted dimmer" id="loader">
+    <div class="ui text loader"></div>
+  </div>
+
+  <div class="actions">
+
+    <%= button_tag "Submit", class: 'ui primary button', data: { disable_with: "<i class='fa fa-spinner fa-spin fa-fw'></i> Posting..."} %>
+  </div>
+<% end %>
+
+</div>

@@ -1,0 +1,62 @@
+<div class="ui secondary  menu">
+  <div class="right menu">
+    <div class="item">
+     <%= form_tag posts_path, method: :get do %>
+ <div class="ui action left icon input">
+
+            <i class="search icon"></i>
+           <%= text_field_tag :search, params[:search], placeholder: 'Search...'%>
+            <%= submit_tag "Search", name: nil, class: 'ui teal button'%>
+          </div>
+          <%end%>
+    </div>
+
+  </div>
+</div>
+<h1>Posts</h1>
+
+
+<table class="ui fixed single line sortable celled table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>User</th>
+      <th class="descending">Posted</th>
+      <th colspan="2">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.body %></td>
+        <td><%= post.user.username %></td>
+        <td ><%= time_ago_in_words(post.created_at) %> ago</td>
+        <td><%= link_to 'Read more', post %></td>
+        
+        <td class="negative"><%= link_to 'Destroy', post, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %><i class="trash outline icon"></i></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+    <th><strong>Total: <%=@posts.count%></strong></th>
+    <th></th>
+    <th></th>
+
+    <th></th>
+    <th colspan="2"></th>
+  </tr>
+  </tfoot>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path, class: 'ui primary button' %>
+
+
+<script>
+$('table').tablesort()
+</script>

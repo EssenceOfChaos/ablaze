@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ablaze</title>
+    <%= csrf_meta_tags %>
+   <link rel="stylesheet" href="font-mfizz.css" type="text/css">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+   <%=render 'layouts/navigation' %>
+    <div class="ui container" id="app-wrapper">
+
+  <%= semantic_flash %>
+
+    <%= yield %>
+    </div>
+  </body>
+</html>
