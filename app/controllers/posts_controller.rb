@@ -6,12 +6,11 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     if params[:search].blank?
-      @posts = Post.all
+      @posts = Post.all.paginate(:page => params[:page], :per_page => 10)
     else
-      @posts = Post.search(params[:search])
+      @posts = Post.search(params[:search]).paginate(:page => params[:page], :per_page => 10)
     end
   end
-
   # GET /posts/1
   # GET /posts/1.json
   def show

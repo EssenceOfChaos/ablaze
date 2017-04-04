@@ -39,7 +39,7 @@ gem "paperclip", "~> 5.0.0"
 gem "mongoid-paperclip"
 gem 'will_paginate', '~> 3.1.0'
 gem "will_paginate_semantic_ui"
-
+gem "will_paginate_mongoid"
 
 
 

@@ -6,11 +6,10 @@
 
             <i class="search icon"></i>
            <%= text_field_tag :search, params[:search], placeholder: 'Search...'%>
-            <%= submit_tag "Search", name: nil, class: 'ui teal button'%>
+            <%= button_tag "Search", name: nil, class: 'ui teal button', data: { disable_with: " <i class='fa fa-spinner fa-spin fa-fw'></i>  Searching... "} %>
           </div>
           <%end%>
     </div>
-
   </div>
 </div>
 <h1>Posts</h1>
@@ -54,9 +53,15 @@
 
 <br>
 
-<%= link_to 'New Post', new_post_path, class: 'ui primary button' %>
+<%= link_to 'New Post', new_post_path, class: 'ui primary button'%>
 
+<br>
+<div class="ui segment" id="pageinate">
+
+<%= will_paginate @posts, renderer: WillPaginateSemanticUi::ActionView::Renderer %>
+
+</div>
 
 <script>
-$('table').tablesort()
+      $('table').tablesort()
 </script>

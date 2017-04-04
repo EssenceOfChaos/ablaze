@@ -19,3 +19,18 @@ end
 
     
 end
+
+
+# Devise handles the current_user otherwise defined as...
+# require 'ostruct'
+
+# helper_method :current_user
+
+# def current_user
+#   @current_user ||= User.find session[:user_id] if session[:user_id]
+#   if @current_user
+#     @current_user
+#   else
+#     OpenStruct.new(name: 'Guest')
+#   end
+# end
