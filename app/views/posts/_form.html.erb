@@ -21,6 +21,15 @@
   <div class="field">
     <%= f.text_area :body,  placeholder: 'Post body' %>
   </div>
+
+
+   <div class="field">
+   <%= f.file_field :avatar %>
+</div>
+    <div class="field">
+    <%= f.label :comma_seperated_list, id: 'tag-label'%>
+   <%= f.text_field :tags_list, placeholder: 'Tags'%>
+  </div>
   <div class="ui inverted dimmer" id="loader">
     <div class="ui text loader"></div>
   </div>

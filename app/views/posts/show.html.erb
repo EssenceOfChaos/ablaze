@@ -1,8 +1,18 @@
-
-<h2 class="ui dividing center aligned icon header">
-  <i class="circular wizard icon"></i>
+<div class="ui secondary  menu">
+    <div class="item">
+  <%= link_to 'Back to Posts', posts_path, class: 'ui basic secondary button' %>
+          </div>
+  </div>
+  <div id="center-aligned">
+  <%= image_tag @post.avatar.url(:medium) %> 
+  </div>
+  <h2 class="ui center aligned header">
  <%= @post.title %>
 </h2>
+
+
+
+
 
 <div class="ui raised very padded text container segment">
   
@@ -10,14 +20,61 @@
 
 </div>
 <br>
+<div class="ui divided selection list">
+<a class="item">
  <div class="ui teal horizontal label">Author</div>
     <%= @post.user.username %>
+</a>
+<a class="item">
+<div class="ui orange horizontal label">Tags</div>
+    <%= @post.tags_list%>
+</a>
+<a class="item">
+<div class="ui purple horizontal label">Posted on</div>
+    <%= @post.created_at.strftime("%m/%d/%Y")%>
+</a>
 
+</div>
 <br>
 <br>
-<div class="ui buttons">
-  <%= link_to 'Edit', edit_post_path(@post), class: 'ui button'%>
-  <div class="or"></div>
-  <%= link_to 'Back', posts_path, class: 'ui secondary button' %>
+
+
+
+<div class="ui threaded comments">
+  <h3 class="ui dividing header">Comments</h3>
+  <% if @post.comments.size > 0 %>
+  <% for comment in @post.comments %>
+  <div class="comment">
+    <a class="avatar">
+      image for user
+    </a>
+    <div class="content">
+      <a class="author"><%= comment.commentator %></a>
+      <div class="metadata">
+         <div class="date"><%=time_ago_in_words(comment.created_at) + ' ago ' %></div>
+      </div>
+      <div class="text">
+       <p><%= comment.body %></p>
+      </div>
+      <div class="actions">
+        <a class="reply">Reply</a>
+      </div>
+            
+    </div>
+  </div>
+  <% end %>
+  <% end %>
 </div>
 
+<br>
+
+<div class="ui reply form">
+  <%= form_for [@post, Comment.new] do |f| %>
+  <%= f.text_area :body, size: "30x5", placeholder: 'Add Comment' %>
+  <%= f.hidden_field(:commentator, value: current_user.username)  %>
+  <br>
+  <%=f.submit 'Comment', class: 'ui basic secondary button' %>
+<% end %>
+  </div>
+
+    <br>

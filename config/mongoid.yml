@@ -145,3 +145,14 @@ test:
         read:
           mode: :primary
         max_pool_size: 1
+
+
+
+
+production:
+  clients:
+    default:
+     uri: mongodb://<dbuser>:<dbpassword>@ds163940.mlab.com:63940/flintstone
+     options:
+       connect_timeout: 15
+       raise_error_not_found: false

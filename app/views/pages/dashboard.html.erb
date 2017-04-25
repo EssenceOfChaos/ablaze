@@ -1,3 +1,25 @@
-<h1>Pages#dashboard</h1>
+<div class="ui raised card" >
+  <div class="content">
+    <div class="header" id="user_card" ><%=current_user.username%></div>
+    <div class="meta" id="user_card" >
+      <span class="category" id="user_card"> <%=current_user.created_at.strftime("Member since %b. %d, %Y") %></span>
+    </div>
+    <div class="description"  >
+      <p>You may change your icon at <a href='http://en.gravatar.com'>Gravatar</a></p>
+      <%= gravatar_for @user %>
+</div>
+    </div>
+  
+  <div class="extra content">
+  <p>Last signed in <%=time_ago_in_words(current_user.last_sign_in_at)%> ago</p>
+  </div>
+</div>
 
-<p>Edit me at app/views/pages/dashboard.html.erb</p>
+
+ <p>
+   <%=current_page?(controller:'pages', action: 'dashboard') %> - the current page and action are  (pages - dashboard)
+ </p>
+ <hr>
+<p>
+
+</p>

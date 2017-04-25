@@ -1,32 +1,27 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index]
 
-  # GET /posts
-  # GET /posts.json
+
+
   def index
+    sleep 2
     if params[:search].blank?
       @posts = Post.all.paginate(:page => params[:page], :per_page => 10)
     else
       @posts = Post.search(params[:search]).paginate(:page => params[:page], :per_page => 10)
     end
   end
-  # GET /posts/1
-  # GET /posts/1.json
+
+
+
   def show
   end
-
-  # GET /posts/new
   def new
     @post = Post.new
   end
-
-  # GET /posts/1/edit
   def edit
   end
-
-  # POST /posts
-  # POST /posts.json
   def create
     sleep 2
     @user = current_user
@@ -47,7 +42,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1.json
   def update
     respond_to do |format|
-      if @post.update(post_params)
+      if @post.update_attributes(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else
@@ -75,6 +70,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body, :user_id, :search)
+      params.require(:post).permit(:title, :body, :user_id, :search, :tags_list, :tag_search, :avatar)
     end
 end

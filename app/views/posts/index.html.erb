@@ -1,9 +1,10 @@
+
+<!-- SEARCH BAR -->
 <div class="ui secondary  menu">
   <div class="right menu">
     <div class="item">
-     <%= form_tag posts_path, method: :get do %>
+ <%= form_tag posts_path, method: :get do %>
  <div class="ui action left icon input">
-
             <i class="search icon"></i>
            <%= text_field_tag :search, params[:search], placeholder: 'Search...'%>
             <%= button_tag "Search", name: nil, class: 'ui teal button', data: { disable_with: " <i class='fa fa-spinner fa-spin fa-fw'></i>  Searching... "} %>
@@ -12,9 +13,13 @@
     </div>
   </div>
 </div>
+
+
+
+
 <h1>Posts</h1>
 
-
+<!-- TABLE  -->
 <table class="ui fixed single line sortable celled table">
   <thead>
     <tr>
@@ -34,8 +39,11 @@
         <td><%= post.user.username %></td>
         <td ><%= time_ago_in_words(post.created_at) %> ago</td>
         <td><%= link_to 'Read more', post %></td>
-        
-        <td class="negative"><%= link_to 'Destroy', post, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %><i class="trash outline icon"></i></td>
+        <%if post.user.username == current_user.username%>
+        <td class="negative"><%= link_to semantic_icon('trash outline') + 'Delete', post, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+        <%else%>
+        <td></td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>

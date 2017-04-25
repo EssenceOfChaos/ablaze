@@ -1,29 +1,88 @@
-
-<div class="ui raised card" >
-  <div class="content">
-    <div class="header" id="user_card" ><%=current_user.username%></div>
-    <div class="meta" id="user_card" >
-      <span class="category" id="user_card"> <%=current_user.created_at.strftime("Member since %b. %d, %Y") %></span>
-    </div>
-    <div class="description"  >
-      <p>You may change your icon at <a href='http://en.gravatar.com'>Gravatar</a></p>
-      <%= gravatar_for @user %>
-</div>
-    </div>
-  
-  <div class="extra content">
-  <p>Last signed in <%=time_ago_in_words(current_user.last_sign_in_at)%> ago</p>
-  </div>
-</div>
+<h2 class="ui header">
+Welcome to aBlaZe
+  <div class="sub header">Where bright minds share and reflect</div>
+</h2>
 
 
 
- 
+
 <br>
+<div class="ui relaxed grid">
 
- <div>
-   <i class='icon-gulp' style="font-size:8em"></i>
- </div>
+<div class="four wide column"><i class='icon-mobile-device' style="font-size:5em"></i>Responsive Web Design</div>
+<div class="four wide column"> <i class='icon-git' style="font-size:5em"></i>Git</div>
+<div class="four wide column"><i class='icon-mongodb' style="font-size:5em"></i>Mongo DB</div>
+<div class="four wide column"><i class='icon-ubuntu' style="font-size:5em"></i>Ubuntu</div>
+<!--end first four -->
+
+<div class="four wide column"><i class='icon-shell' style="font-size:5em"></i>Linux  Bash</div>
+<div class="four wide column"> <i class='icon-raspberrypi' style="font-size:5em"></i>Raspberry Pi</div>
+<div class="four wide column"><i class='icon-sass' style="font-size:5em"></i>Sass</div>
+<div class="four wide column"><i class='icon-ruby-on-rails-alt' style="font-size:5em"></i>Ruby on Rails</div>
+
+<!--end second four -->
+<div class="four wide column"><i class='icon-ruby' style="font-size:5em"></i>Ruby</div>
+<div class="four wide column"> <i class='icon-wordpress' style="font-size:5em"></i>WordPress</div>
+<div class="four wide column"><i class='icon-javascript' style="font-size:5em"></i>JavaScript</div>
+<div class="four wide column"><i class='icon-linux-mint' style="font-size:5em"></i>Linux Mint</div>
+
+<!--end third four -->
 
 
+.icon-iphone
+.icon-docker
+.icon-elixir
+.icon-debian
+.icon-css3-alt
+.icon-html5-alt
+.icon-centos
+.icon-bootstrap
+.icon-aws
+.icon-apache
+.icon-angular
+.icon-archlinux
+.icon-azure
+.icon-fedora
 
+.icon-go
+.icon-gnome
+.icon-google-alt
+.icon-gulp
+.icon-grunt
+.icon-heroku
+.icon-hadoop
+.icon-javascript
+.icon-jquery
+.icon-linux-mint
+.icon-mariadb
+.icon-nginx
+.icon-oracle
+.icon-npm
+.icon-osx
+.icon-python
+.icon-phone-gap
+.icon-reactjs
+.icon-ruby
+.icon-raspberrypi
+.icon-redis
+</div>
+
+
+<br>
+        <div class="item">
+ <%= form_tag posts_path, method: :get do %>
+ <div class="ui action left icon input">
+            <i class="search icon"></i>
+           <%= text_field_tag :search, params[:search], placeholder: 'Search...'%>
+            <%= button_tag "Search", name: nil, class: 'ui teal button', data: { disable_with: " <i class='fa fa-spinner fa-spin fa-fw'></i>  Searching... "} %>
+          </div>
+          <%end%>
+    </div>
+
+<br>
+<br>
+<%=button_to 'Preview Font-mfizz glyphs', 'http://localhost:3000/preview', method: :get %>
+
+ <p>
+   <%=current_page?(controller:'pages', action: 'index') %> - the current page and action are  (pages - index)
+ </p>

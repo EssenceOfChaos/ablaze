@@ -78,8 +78,15 @@ body {
         display: block;
       }
     }
+#tag-label {
+  color: $white;
+}
+#center-aligned {
 
-
+display: block;
+margin: auto;
+width: 40%;
+}
 
 /* Icon Hang */
 
