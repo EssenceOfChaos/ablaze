@@ -19,3 +19,4 @@
 # Ignore sensitive information
 config/secrets.yml
 .rbenv-vars
+config/mongoid.yml
