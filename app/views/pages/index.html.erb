@@ -3,22 +3,19 @@ Welcome to aBlaZe
   <div class="sub header">Where bright minds share and reflect</div>
 </h2>
 
+<a href="/pages/info"><button class="ui primary button">Information</button></a>
 
-
-
+<br>
+<hr>
+<h3>Our Preferred Topic List</h3>
 <br>
 <div class="ui relaxed grid">
 
-<div class="four wide column"><i class='icon-mobile-device' style="font-size:5em"></i>Responsive Web Design</div>
+<div class="four wide column"><i class='icon-ruby-on-rails-alt' style="font-size:5em"></i>Ruby on Rails</div>
 <div class="four wide column"> <i class='icon-git' style="font-size:5em"></i>Git</div>
 <div class="four wide column"><i class='icon-mongodb' style="font-size:5em"></i>Mongo DB</div>
 <div class="four wide column"><i class='icon-ubuntu' style="font-size:5em"></i>Ubuntu</div>
 <!--end first four -->
-
-<div class="four wide column"><i class='icon-shell' style="font-size:5em"></i>Linux  Bash</div>
-<div class="four wide column"> <i class='icon-raspberrypi' style="font-size:5em"></i>Raspberry Pi</div>
-<div class="four wide column"><i class='icon-sass' style="font-size:5em"></i>Sass</div>
-<div class="four wide column"><i class='icon-ruby-on-rails-alt' style="font-size:5em"></i>Ruby on Rails</div>
 
 <!--end second four -->
 <div class="four wide column"><i class='icon-ruby' style="font-size:5em"></i>Ruby</div>
@@ -29,9 +26,15 @@ Welcome to aBlaZe
 <!--end third four -->
 
 
+<div class="four wide column"><i class='icon-elixir' style="font-size:5em"></i>Elixir</div>
+<div class="four wide column"> <i class='icon-angular' style="font-size:5em"></i>Angular</div>
+<div class="four wide column"><i class='icon-sass' style="font-size:5em"></i>Sass</div>
+<div class="four wide column"><i class='icon-reactjs' style="font-size:5em"></i>React</div>
+
+<hr>
+
 .icon-iphone
 .icon-docker
-.icon-elixir
 .icon-debian
 .icon-css3-alt
 .icon-html5-alt
@@ -39,30 +42,19 @@ Welcome to aBlaZe
 .icon-bootstrap
 .icon-aws
 .icon-apache
-.icon-angular
 .icon-archlinux
 .icon-azure
 .icon-fedora
-
 .icon-go
-.icon-gnome
-.icon-google-alt
 .icon-gulp
 .icon-grunt
 .icon-heroku
 .icon-hadoop
-.icon-javascript
-.icon-jquery
-.icon-linux-mint
-.icon-mariadb
 .icon-nginx
-.icon-oracle
 .icon-npm
 .icon-osx
 .icon-python
 .icon-phone-gap
-.icon-reactjs
-.icon-ruby
 .icon-raspberrypi
 .icon-redis
 </div>
@@ -74,14 +66,13 @@ Welcome to aBlaZe
  <div class="ui action left icon input">
             <i class="search icon"></i>
            <%= text_field_tag :search, params[:search], placeholder: 'Search...'%>
-            <%= button_tag "Search", name: nil, class: 'ui teal button', data: { disable_with: " <i class='fa fa-spinner fa-spin fa-fw'></i>  Searching... "} %>
+            <%= button_tag "Search Posts", name: nil, class: 'ui teal button', data: { disable_with: " <i class='fa fa-spinner fa-spin fa-fw'></i>  Searching... "} %>
           </div>
           <%end%>
     </div>
 
 <br>
 <br>
-<%=button_to 'Preview Font-mfizz glyphs', 'http://localhost:3000/preview', method: :get %>
 
  <p>
    <%=current_page?(controller:'pages', action: 'index') %> - the current page and action are  (pages - index)
