@@ -49,7 +49,7 @@ validates :body,
 # end
 
 def self.search(search)
-   if search
+  if search
         any_of({title: /#{search}/i}, {body: /#{search}/i}, {tags: /#{search}/i})
   end
 end

@@ -5,13 +5,13 @@ class PostsController < ApplicationController
   def index
     sleep 2
     if params[:search].blank?
-      @posts = Post.all.paginate(:page => params[:page], :per_page => 10)
+      @posts = Post.all.order(created_at: :desc).paginate(:page => params[:page], :per_page => 10)
     else
       @posts = Post.search(params[:search]).paginate(:page => params[:page], :per_page => 10)
     end
   end
 
-
+  
 
   def show
   end

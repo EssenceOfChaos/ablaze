@@ -70,11 +70,12 @@
 
 <div class="ui reply form">
   <%= form_for [@post, Comment.new] do |f| %>
-  <%= f.text_area :body, size: "30x5", placeholder: 'Add Comment' %>
+  <%= f.text_area :body, size: "30x4", placeholder: 'Add Comment' %>
   <%= f.hidden_field(:commentator, value: current_user.username)  %>
+  <br>
   <br>
   <%=f.submit 'Comment', class: 'ui basic secondary button' %>
 <% end %>
   </div>
 
-    <br>
+<br>

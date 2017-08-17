@@ -7,7 +7,7 @@
  <div class="ui action left icon input">
             <i class="search icon"></i>
            <%= text_field_tag :search, params[:search], placeholder: 'Search...'%>
-            <%= button_tag "Search", name: nil, class: 'ui teal button', data: { disable_with: " <i class='fa fa-spinner fa-spin fa-fw'></i>  Searching... "} %>
+            <%= button_tag "Search", name: nil, class: 'ui teal button', data: { disable_with: " <i class='fa fa-spinner fa-spin fa-fw'> </i>   Searching...  "} %>
           </div>
           <%end%>
     </div>
@@ -26,7 +26,7 @@
       <th>Title</th>
       <th>Body</th>
       <th>User</th>
-      <th class="descending">Posted</th>
+      <th class="descending">Posted <%=semantic_icon('sort')%></th>
       <th colspan="2">Actions</th>
     </tr>
   </thead>
@@ -38,7 +38,7 @@
         <td><%= post.body %></td>
         <td><%= post.user.username %></td>
         <td ><%= time_ago_in_words(post.created_at) %> ago</td>
-        <td><%= link_to 'Read more', post %></td>
+        <td ><%= link_to 'Read more', post %></td>
         <%if post.user.username == current_user.username%>
         <td class="negative"><%= link_to semantic_icon('trash outline') + 'Delete', post, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
         <%else%>
